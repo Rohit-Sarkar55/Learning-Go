@@ -33,4 +33,8 @@ func main() {
 	if found2 {
 		fmt.Printf("found value  %+v\n", value2)
 	}
+	// delete from maps
+
+	delete(_map, "a")
+	fmt.Printf("map %+v  size : %d \n", _map, len(_map))
 }
