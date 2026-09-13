@@ -27,11 +27,11 @@ func (e MathError) Error() string {
 func add(number ...int) int {
 	defer fmt.Println("Sum finished")
 
-	total := 0
+	totl := 0
 	for _, i := range number {
 		total += i
 	}
-	return total
+	return totl
 }
 
 func safeDivision(a int, b int) (int, error) {
