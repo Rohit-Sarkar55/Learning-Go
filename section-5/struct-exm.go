@@ -15,6 +15,17 @@ type Employee struct {
 	JoinedAt  time.Time
 }
 
+func (e Employee) FullName() string {
+	return fmt.Sprintf("%s %s", e.FirstName, e.LastName)
+}
+
+func (e Employee) Deactive_Value_Reference() {
+	e.IsActive = false
+}
+
+func (e *Employee) Deactive_Pointer_Reference() {
+	e.IsActive = false
+}
 func newEmployee(id int, firstName, lastName, position string, salary float64, isActive bool) *Employee {
 	return &Employee{
 		ID:        id,
@@ -48,4 +59,20 @@ func main() {
 	fmt.Println(joe) // joe pointer
 
 	fmt.Println(&joe)
+
+	fmt.Println(joe.FullName())
+
+	joe.Deactive_Value_Reference()
+	fmt.Println(joe)
+
+	fmt.Printf("%+v\n", jane)
+	jane.Deactive_Value_Reference()
+	fmt.Printf("%+v\n", jane)
+	fmt.Printf("%+v\n", jane)
+	jane.Deactive_Pointer_Reference()
+	fmt.Printf("%+v\n", jane)
+
+	fmt.Printf("%+v\n", joe)
+	joe.Deactive_Pointer_Reference()
+	fmt.Printf("%+v\n", joe)
 }
